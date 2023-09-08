@@ -599,8 +599,20 @@ const items = [
   const listItems = [];
   for (let i = 0; i < products.length; i++) {
     const item = products[i];
+    let envio = '';
     let tagList = '';
+    
+    if (item.shipping.free_shipping) {
+      envio = `
+            <a class="icon-link icon-link-hover" style="transform: translate3d(0, -.125rem, 0);" href="#">
+                <img src="ic_shipping.png">
+            </a>`;
+
+      tagList = getTags(item.tags);
+    }
+    
     const formatPrice = item.price.toLocaleString();
+   
     const itemHTML =
    `<div class="container">
       <div class="col d-flex flex-row align-items-center">
@@ -608,11 +620,15 @@ const items = [
        
           <div class="col">
              <h3 class="price">$ ${formatPrice}<h3/>
-             <p class="title">${item.title}<p/>
+             <p class="title">
+             <a class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="${item.permalink}">${item.title}</a>
+             <p/>
           </div>  
 
           <div class="col d-flex justify-content-end">
+             <p>Enviar a </p>
              <p class="address">${item.address.state_name}</p> 
+             <p class="ps-2">${envio}</p>
           </div>
       </div>
     </div>`;
@@ -698,6 +714,8 @@ function getFilteredList(){
       }
     });
   });
-}); */
+}); 
+${item.title}
+*/
 
   

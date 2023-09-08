@@ -17,3 +17,29 @@ body{
   margin-left: 100px;
   margin-right: 100px;
 }
+
+.line {
+  background-color:grey 1px solid;
+  height: 2px;
+  max-width: 95%;
+  color: grey;
+  margin-top: 2rem;
+}
+
+.main-container{
+  display: flex;
+  justify-content: start;
+  background-color:white;
+}
+
+.filter-container{
+   display: flex;
+   flex-direction: column;
+   margin: 2px;
+   padding: 2px;
+   border: 2px;
+   background: #fff;
+   border: solid 1px #ddd;
+   border-radius: 6px;
+   padding: 11px;
+}
